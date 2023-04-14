@@ -1,4 +1,4 @@
-= CARDS =
+# CARDS
 
 Creates an In-Memory database that forms the versioned backend for a few APIs.
 
@@ -38,16 +38,19 @@ Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-
 
 
 The server can be reached at `http://localhost:8080`
-== APIs ==
-=== Create a new Deck ===
+## APIs
+### Create a new Deck
 
 POST   /api/v1/decks
 
 It would return a given deck by its UUID. If the deck was not passed over or is invalid it should return an error. This method will "open the deck", meaning that it will list all cards by the order it was created.
 
-Params
-shuffled: true/false boolean that determines if the created deck should be shuffled or not
-cards: comma-separated codes to create a custom deck
+#### Params
+shuffled
+: true/false or 1/0 boolean that determines if the created deck should be shuffled or not.
+
+cards
+: comma-separated codes to create a custom deck
 
 Example request:
 `
@@ -57,13 +60,15 @@ curl --location --request POST 'http://localhost:8080/api/v1/decks' \
 `
 
 Example response:
-`{
+```
+{
     "deck_id": "a251071b-662f-44b6-ba11-e24863039c59",
     "shuffled": false,
     "remaining": 30
-}`
+}
+```
 
-=== Open a Deck ===
+### Open a Deck
 GET    /api/v1/decks/:deck_id
 
 Returns a given deck by its UUID. If the deck was not passed over or is invalid it should return an error.
@@ -75,7 +80,8 @@ curl --location --request GET 'http://localhost:8080/api/v1/decks/a251071b-662f-
 `
 
 Example response:
-`{
+```
+{
     "deck_id": "a251071b-662f-44b6-ba11-e24863039c59",
     "shuffled": false,
     "remaining": 3,
@@ -96,9 +102,10 @@ Example response:
             "code": "8C"
         }
     ]
-}`
+}
+```
 
-=== Draw from a Deck ===
+### Draw from a Deck
 GET    /api/v1/decks/:deck_id/draw/
 
 Example request:
@@ -106,7 +113,7 @@ Example request:
 
 Example response:
 
-`
+```
 {
     "cards": [
         {
@@ -124,25 +131,26 @@ Example response:
     "remaining": 3,
     "shuffled": true
 }
-`
+```
 
 
-
-=== List all Decks ===
+### List all Decks
 GET    /api/v1/decks
 
 This was beyond the scope of the assignment, however I found it very useful during testing. So I decided to keep it in.
 Returns a paginated list of all the decks that have been created.
 
-Params:
-page_token: The token required to obtain the next page
+#### Params
+page_token
+: The token required to obtain the next page. For example, `curl --location --request GET 'http://localhost:8080/api/v1/decks/?page_token=MTY4MTQ3MzcyMg=='`
 
 Example request:
 `curl --location --request GET 'http://localhost:8080/api/v1/decks/'`
 
 Example response:
 
-`{
+```
+{
     "decks": [
         {
             "deck_id": "f89a47b0-da96-11ed-846a-865a7a4b8830",
@@ -196,5 +204,6 @@ Example response:
         }
     ],
     "page_token": "MTY4MTQ1NzcyNg=="
-}`
+}
+```
 
