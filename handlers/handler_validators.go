@@ -13,10 +13,8 @@ import (
 	"github.com/b055/cards/models"
 )
 
-
 // Contains validation logic for the API endpoints
 //
-
 
 func validateGetDeckById(deck_id string) (string, error) {
 	if deck_id == "" {

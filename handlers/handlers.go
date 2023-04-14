@@ -16,7 +16,6 @@ import (
 
 // Contains the handlers for the different API endpoints
 
-
 const NUMBER_OF_CARDS = 52
 const PAGE_SIZE = 10
 
