@@ -11,6 +11,8 @@ import (
 	"gorm.io/gorm"
 )
 
+// Contains some helper logic for manipulating the models
+
 var DB *gorm.DB
 
 type Suit int64

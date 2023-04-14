@@ -1,12 +1,12 @@
 # CARDS
 
-Creates an In-Memory database that forms the versioned backend for a few APIs.
+Creates an in-memory database that forms the versioned backend for a few APIs. Because it is in-memory, that means that any data that exists in the database will be discarded once the server is terminated. Of course a possible improvement would be to use a more persistent datastore. A lightweight one would be *file-based sqlite*.
 
 Fetch from the repository using
-`go get github.com/b055/cards`
+`git clone git@github.com:b055/cards.git`
 
 Build using
-`go build`
+`cd cards && go build`
 
 
 Run the unit tests from the root directory with
@@ -126,10 +126,7 @@ Example response:
             "value": "Ace",
             "code": "AS"
         }
-    ],
-    "deck_id": "74c6e0a8-dac6-11ed-b2bf-865a7a4b8830",
-    "remaining": 3,
-    "shuffled": true
+    ]
 }
 ```
 

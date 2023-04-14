@@ -14,6 +14,9 @@ import (
 	"github.com/b055/cards/models"
 )
 
+// Contains the handlers for the different API endpoints
+
+
 const NUMBER_OF_CARDS = 52
 const PAGE_SIZE = 10
 
@@ -192,7 +195,7 @@ func DrawCardsInDeck(c *gin.Context) {
 			}
 
 			c.JSON(http.StatusOK, gin.H{
-				"cards":     cards})
+				"cards": cards})
 			return
 		}
 
